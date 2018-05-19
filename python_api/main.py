@@ -1,11 +1,8 @@
 from quickbooks import Oauth2SessionManager
 import quickbooks
-<<<<<<< HEAD
-=======
 import requests
 import sys
 from flask import Flask, redirect, url_for, request
->>>>>>> 3ec30a4752d11a0bd28361fc6c2a6cbaf82782eb
 
 QUICKBOOKS_CLIENT_KEY = 'Q0bvgCHQyw0f29EhMAkxkPslRVm9UUO3snOWFUFc7w4Ko9C9b8'
 QUICKBOOKS_CLIENT_SECRET = 'rRxcrmDaHvivg0GB3NH7gP6dd6lqFabztQoATiML'
