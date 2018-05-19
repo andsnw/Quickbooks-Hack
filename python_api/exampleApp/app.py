@@ -3,7 +3,7 @@ from flask_oauth import OAuth
 import requests
 import urllib
 from werkzeug.exceptions import BadRequest
-from QBOService import create_customer, get_companyInfo
+from QBOService import create_customer, get_companyInfo, create_expense
 from utils import excel, context, OAuth2Helper
 import config
 
@@ -39,36 +39,58 @@ def index():
         title="QB Customer Leads",
     )
 
-# @app.route('/create', methods=['POST'])
-# def create_expense():
-#     """Create a new expense"""
-#     customer_id = request.form['id']
-#
-#     if config.AUTH_TYPE == 'OAuth1':
-#         request_context = context.RequestContextOAuth1(session['realm_id'], session['access_token'], session['access_secret'])
-#     else:
-#         request_context = context.RequestContext(session['realm_id'], session['access_token'], session['refresh_token'])
-#
-#     for customer in customer_list:
-#         if customer['Id'] == customer_id:
-#             # Create customer object
-#             response = create_customer(customer, request_context)
-#
-#             # If customer added successfully, remove them from html and excel file
-#             if (response.status_code == 200):
-#                 font_color = 'green'
-#                 new_customer_list = excel.remove_lead(customer_list, customer_id)
-#                 flash('Customer successfully added!')
-#                 return render_template(
-#                     'index.html',
-#                     customer_dict=new_customer_list,
-#                     title='QB Customer Leads',
-#                     text_color=font_color
-#                 )
-#             else:
-#                 font_color = 'red'
-#                 flash('Something went wrong: ' + response.text)
-#     return redirect(url_for('index'))
+@app.route('/create')
+def expense_me():
+    """Create a new expense"""
+    expense = {
+      "AccountRef": {
+        "value": "42",
+        "name": "Visa"
+      },
+      "PaymentType": "CreditCard",
+      "Line": [
+        {
+          "Amount": 10.00,
+          "LinkedTxn": {
+            "TxnType": "Expense"
+            # "TxnId": "Purchase.id"
+          },
+          "DetailType": "AccountBasedExpenseLineDetail",
+          "AccountBasedExpenseLineDetail": {
+           "AccountRef": {
+              "name": "Meals and Entertainment",
+              "value": "13"
+            },
+            "TaxCodeRef": {
+                "value": "Tax"
+            }
+          }
+        }
+      ]
+    }
+    if config.AUTH_TYPE == 'OAuth1':
+        request_context = context.RequestContextOAuth1(session['realm_id'], session['access_token'], session['access_secret'])
+    else:
+        request_context = context.RequestContext(session['realm_id'], session['access_token'], session['refresh_token'])
+
+    response = create_expense(expense, request_context)
+
+    # If customer added successfully, remove them from html and excel file
+    if (response.status_code == 200):
+        font_color = 'green'
+        flash('Expense successfully added!')
+        return render_template(
+            'index.html',
+            customer_dict=new_customer_list,
+            title='QB Customer Leads',
+            text_color=font_color
+        )
+    else:
+        font_color = 'red'
+        flash('Something went wrong: ' + response.text)
+
+    return redirect(url_for('index'))
+
 
 @app.route('/', methods=['POST'])
 def update_table():

@@ -3,6 +3,13 @@ from utils import context, APICallService
 import json
 import config
 
+def create_expense(expense_data, req_context):
+    """Create an expense"""
+    uri = '/purchase?minorversion=' + config.API_MINORVERSION
+    expense = expense_data
+    response = APICallService.post_request(req_context, uri, expense)
+    return response
+
 def create_customer(excel_customer, req_context):
     """Create a customer object with customer data from a working dictionary"""
     full_name = excel_customer['Full Name']
@@ -13,8 +20,8 @@ def create_customer(excel_customer, req_context):
         middle_name = str(name_list[1:len(name_list) - 1])
     else:
         middle_name = ''
-    
-    # Create customer object 
+
+    # Create customer object
     customer = {
         'GivenName': first_name,
         'MiddleName': middle_name,
@@ -36,5 +43,3 @@ def get_companyInfo(req_context):
     uri = "/companyinfo/" + req_context.realm_id + "?minorversion=" + config.API_MINORVERSION
     response = APICallService.get_request(req_context, uri)
     return response
-
-
