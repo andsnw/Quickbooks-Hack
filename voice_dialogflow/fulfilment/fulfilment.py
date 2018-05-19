@@ -21,74 +21,58 @@ def fulfilme():
         if "action" in request_data["queryResult"].keys():
             if request_data["queryResult"]["action"] == "request_permission":
                 print "recieved request for permission"
-                return jsonify(request_location_v2())
+                return jsonify(request_location())
         params = request_data["queryResult"]["parameters"]
         print json.dumps(request_data, indent=4)
         return 'Hi'
     return "Hello World!"
 
-def request_location_v2():
-    location_req = {
-  "conversationToken": "{\"state\":null,\"data\":{}}",
-  "expectUserResponse": True,
-  "expectedInputs": [
-    {
-      "inputPrompt": {
-        "initialPrompts": [
-          {
-            "textToSpeech": "PLACEHOLDER_FOR_PERMISSION"
-          }
-        ],
-                "noInputPrompts": []
-            },
-            "possibleIntents": [
-                {
-                "intent": "actions.intent.PERMISSION",
-                "inputValueData": {
-                    "@type": "type.googleapis.com/google.actions.v2.PermissionValueSpec",
-                    "optContext": "To deliver your order",
-                    "permissions": [
-                    "NAME",
-                    "DEVICE_PRECISE_LOCATION"
-                        ]
-                    }
-                    }
-                ]
-                }
-            ]
-            }
-    return location_req
-
 def request_location():
-    location_req =  {'payload': {
+    location_req =  {    
+                        'payload': {
                         'google': {
                             'expect_user_response': True,
                             'is_ssml': False,
                             'no_input_prompts': [],
+                            'richResponse': {
+                                'items': [
+                                    {
+                                    'simpleResponse': {
+                                        'textToSpeech': 'hello',
+                                        'displayText': 'hi'
+                                    }
+                                    }
+                                ],
+                                'suggestions': [
+                                    {
+                                    'title': 'Say this'
+                                    },
+                                    {
+                                    'title': 'or this'
+                                    }
+                                ]
+                            },
                             'system_intent': {
                                 'intent': 'actions.intent.PERMISSION',
-                                'spec': {
-                                    'permission_value_spec': {
-                                        'opt_context': 'To test',
-                                        'permissions': ['NAME', 'DEVICE_PRECISE_LOCATION']
-                                    }
+                                'data': {
+                                    "@type": "type.googleapis.com/google.actions.v2.PermissionValueSpec",
+                                    "optContext": "For better a better accounting experience",
+                                    "permissions": [
+                                        "NAME",
+                                        "DEVICE_PRECISE_LOCATION"
+                                    ]
                                 }
                             }
                         }
                     },
-                    # 'outputContexts': [
-                    #     {
-                    #         'name': 'actions_on_google',
-                    #         'lifespanCount': 100,
-                    #         'parameters': {}
-                    #     }
-                    # ]
+
                     }
     return location_req
 
 # TODO: This, we forward the params iteratively i.e. after every dialogue 
 #       that is parsed from df
 def forward_params(fufillment_params):
+    json_payload = jsonify(fufillment_params)
     pass
 
 if __name__ == "__main__":
