@@ -1,0 +1,386 @@
+<template name="entryCard">
+  <tr class="bg-white">
+    <th scope="row">
+      <div class="media align-items-center">
+        <!-- <img alt="Image" src="assets/img/avatar-male-1.jpg" class="avatar" /> -->
+        <div class="media-body">
+          Debit
+        </div>
+      </div>
+    </th>
+    <td>Monday, 18th April 2018, 4:20pm</td>
+    <td>Office chair purchase</td>
+    <td>$50.00</td>
+    <td>Bought from officeworks - need to upload receipt</td>
+    <td>
+      <div class="dropdown">
+        <button class="btn btn-sm btn-outline-primary dropdown-toggle dropdown-toggle-no-arrow" type="button" id="dropdownMenuButton-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="icon-dots-three-horizontal"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-sm" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Contact</a>
+          <a class="dropdown-item" href="#">Assign</a>
+          <a class="dropdown-item" href="#">Share</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Remove</a>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr class="table-divider"></tr>
+  <!--
+  <tr class="bg-white">
+    <th scope="row">
+      <div class="media align-items-center">
+        <img alt="Image" src="assets/img/avatar-male-1.jpg" class="avatar" />
+        <div class="media-body">
+          <span class="h6 mb-0">Daniel Cameron
+            <span class="badge badge-secondary">Admin</span>
+          </span>
+          <span class="text-muted">Product Designer</span>
+        </div>
+      </div>
+    </th>
+    <td>daniel.cameron@wingman.co</td>
+    <td>San Francisco, USA</td>
+    <td>
+      <div class="dropdown">
+        <button class="btn btn-sm btn-outline-primary dropdown-toggle dropdown-toggle-no-arrow" type="button" id="dropdownMenuButton-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="icon-dots-three-horizontal"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-sm" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Contact</a>
+          <a class="dropdown-item" href="#">Assign</a>
+          <a class="dropdown-item" href="#">Share</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Remove</a>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr class="table-divider"></tr>
+
+  <tr class="bg-white">
+    <th scope="row">
+      <div class="media align-items-center">
+        <img alt="Image" src="assets/img/avatar-female-1.jpg" class="avatar" />
+        <div class="media-body">
+          <span class="h6 mb-0">Caitlyn Halsy
+            <span class="badge badge-secondary">Admin</span>
+          </span>
+          <span class="text-muted">Marketing Professional</span>
+        </div>
+      </div>
+    </th>
+    <td>caitlyn.halsy@wingman.co</td>
+    <td>Melbourne, AU</td>
+    <td>
+      <div class="dropdown">
+        <button class="btn btn-sm btn-outline-primary dropdown-toggle dropdown-toggle-no-arrow" type="button" id="dropdownMenuButton-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="icon-dots-three-horizontal"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-sm" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Contact</a>
+          <a class="dropdown-item" href="#">Assign</a>
+          <a class="dropdown-item" href="#">Share</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Remove</a>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr class="table-divider"></tr>
+
+  <tr class="bg-white">
+    <th scope="row">
+      <div class="media align-items-center">
+        <img alt="Image" src="assets/img/avatar-male-2.jpg" class="avatar" />
+        <div class="media-body">
+          <span class="h6 mb-0">Toby Marsh
+            <span class="badge badge-secondary">Admin</span>
+          </span>
+          <span class="text-muted">Developer</span>
+        </div>
+      </div>
+    </th>
+    <td>toby.marsh@wingman.co</td>
+    <td>Denver, USA</td>
+    <td>
+      <div class="dropdown">
+        <button class="btn btn-sm btn-outline-primary dropdown-toggle dropdown-toggle-no-arrow" type="button" id="dropdownMenuButton-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="icon-dots-three-horizontal"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-sm" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Contact</a>
+          <a class="dropdown-item" href="#">Assign</a>
+          <a class="dropdown-item" href="#">Share</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Remove</a>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr class="table-divider"></tr>
+
+  <tr class="bg-white">
+    <th scope="row">
+      <div class="media align-items-center">
+        <img alt="Image" src="assets/img/avatar-female-2.jpg" class="avatar" />
+        <div class="media-body">
+          <span class="h6 mb-0">Lucille Freebody</span>
+          <span class="text-muted">Graphic Designer</span>
+        </div>
+      </div>
+    </th>
+    <td>lucille.freebody@wingman.co</td>
+    <td>Bathwick, UK</td>
+    <td>
+      <div class="dropdown">
+        <button class="btn btn-sm btn-outline-primary dropdown-toggle dropdown-toggle-no-arrow" type="button" id="dropdownMenuButton-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="icon-dots-three-horizontal"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-sm" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Contact</a>
+          <a class="dropdown-item" href="#">Assign</a>
+          <a class="dropdown-item" href="#">Share</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Remove</a>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr class="table-divider"></tr>
+
+  <tr class="bg-white">
+    <th scope="row">
+      <div class="media align-items-center">
+        <img alt="Image" src="assets/img/avatar-male-3.jpg" class="avatar" />
+        <div class="media-body">
+          <span class="h6 mb-0">Brenton Harvey</span>
+          <span class="text-muted">Front-End Developer</span>
+        </div>
+      </div>
+    </th>
+    <td>brenton.harvey@wingman.co</td>
+    <td>Dublin, IR</td>
+    <td>
+      <div class="dropdown">
+        <button class="btn btn-sm btn-outline-primary dropdown-toggle dropdown-toggle-no-arrow" type="button" id="dropdownMenuButton-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="icon-dots-three-horizontal"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-sm" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Contact</a>
+          <a class="dropdown-item" href="#">Assign</a>
+          <a class="dropdown-item" href="#">Share</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Remove</a>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr class="table-divider"></tr>
+
+  <tr class="bg-white">
+    <th scope="row">
+      <div class="media align-items-center">
+        <img alt="Image" src="assets/img/avatar-female-3.jpg" class="avatar" />
+        <div class="media-body">
+          <span class="h6 mb-0">Tabatha Firth</span>
+          <span class="text-muted">Founder @ Clop</span>
+        </div>
+      </div>
+    </th>
+    <td>tabatha.firth@wingman.co</td>
+    <td>Sydney, AU</td>
+    <td>
+      <div class="dropdown">
+        <button class="btn btn-sm btn-outline-primary dropdown-toggle dropdown-toggle-no-arrow" type="button" id="dropdownMenuButton-6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="icon-dots-three-horizontal"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-sm" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Contact</a>
+          <a class="dropdown-item" href="#">Assign</a>
+          <a class="dropdown-item" href="#">Share</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Remove</a>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr class="table-divider"></tr>
+
+  <tr class="bg-white">
+    <th scope="row">
+      <div class="media align-items-center">
+        <img alt="Image" src="assets/img/avatar-male-4.jpg" class="avatar" />
+        <div class="media-body">
+          <span class="h6 mb-0">Ramon Hernandez</span>
+          <span class="text-muted">Motion Designer</span>
+        </div>
+      </div>
+    </th>
+    <td>ramon.hernandez@wingman.co</td>
+    <td>Mexico City, ME</td>
+    <td>
+      <div class="dropdown">
+        <button class="btn btn-sm btn-outline-primary dropdown-toggle dropdown-toggle-no-arrow" type="button" id="dropdownMenuButton-7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="icon-dots-three-horizontal"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-sm" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Contact</a>
+          <a class="dropdown-item" href="#">Assign</a>
+          <a class="dropdown-item" href="#">Share</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Remove</a>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr class="table-divider"></tr>
+
+  <tr class="bg-white">
+    <th scope="row">
+      <div class="media align-items-center">
+        <img alt="Image" src="assets/img/avatar-female-4.jpg" class="avatar" />
+        <div class="media-body">
+          <span class="h6 mb-0">Roberta Kissinger</span>
+          <span class="text-muted">Copywriter</span>
+        </div>
+      </div>
+    </th>
+    <td>roberta.kissinger@wingman.co</td>
+    <td>Rotterdam, NL</td>
+    <td>
+      <div class="dropdown">
+        <button class="btn btn-sm btn-outline-primary dropdown-toggle dropdown-toggle-no-arrow" type="button" id="dropdownMenuButton-8" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="icon-dots-three-horizontal"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-sm" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Contact</a>
+          <a class="dropdown-item" href="#">Assign</a>
+          <a class="dropdown-item" href="#">Share</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Remove</a>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr class="table-divider"></tr>
+
+  <tr class="bg-white">
+    <th scope="row">
+      <div class="media align-items-center">
+        <img alt="Image" src="assets/img/avatar-male-5.jpg" class="avatar" />
+        <div class="media-body">
+          <span class="h6 mb-0">Franc Bijon</span>
+          <span class="text-muted">Illustrator</span>
+        </div>
+      </div>
+    </th>
+    <td>franc.bijon@wingman.co</td>
+    <td>Paris, FR</td>
+    <td>
+      <div class="dropdown">
+        <button class="btn btn-sm btn-outline-primary dropdown-toggle dropdown-toggle-no-arrow" type="button" id="dropdownMenuButton-9" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="icon-dots-three-horizontal"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-sm" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Contact</a>
+          <a class="dropdown-item" href="#">Assign</a>
+          <a class="dropdown-item" href="#">Share</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Remove</a>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr class="table-divider"></tr>
+
+  <tr class="bg-white">
+    <th scope="row">
+      <div class="media align-items-center">
+        <img alt="Image" src="assets/img/avatar-female-5.jpg" class="avatar" />
+        <div class="media-body">
+          <span class="h6 mb-0">Kate Worthington</span>
+          <span class="text-muted">Marketing Lead</span>
+        </div>
+      </div>
+    </th>
+    <td>kate.worthington@wingman.co</td>
+    <td>Los Angeles, USA</td>
+    <td>
+      <div class="dropdown">
+        <button class="btn btn-sm btn-outline-primary dropdown-toggle dropdown-toggle-no-arrow" type="button" id="dropdownMenuButton-10" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="icon-dots-three-horizontal"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-sm" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Contact</a>
+          <a class="dropdown-item" href="#">Assign</a>
+          <a class="dropdown-item" href="#">Share</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Remove</a>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr class="table-divider"></tr>
+
+  <tr class="bg-white">
+    <th scope="row">
+      <div class="media align-items-center">
+        <img alt="Image" src="assets/img/avatar-male-6.jpg" class="avatar" />
+        <div class="media-body">
+          <span class="h6 mb-0">Kenny Smith</span>
+          <span class="text-muted">Developer</span>
+        </div>
+      </div>
+    </th>
+    <td>kenny.smith@wingman.co</td>
+    <td>Berlin, GER</td>
+    <td>
+      <div class="dropdown">
+        <button class="btn btn-sm btn-outline-primary dropdown-toggle dropdown-toggle-no-arrow" type="button" id="dropdownMenuButton-11" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="icon-dots-three-horizontal"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-sm" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Contact</a>
+          <a class="dropdown-item" href="#">Assign</a>
+          <a class="dropdown-item" href="#">Share</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Remove</a>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr class="table-divider"></tr>
+
+  <tr class="bg-white">
+    <th scope="row">
+      <div class="media align-items-center">
+        <img alt="Image" src="assets/img/avatar-female-6.jpg" class="avatar" />
+        <div class="media-body">
+          <span class="h6 mb-0">Christina Hersinger</span>
+          <span class="text-muted">Interface Designer</span>
+        </div>
+      </div>
+    </th>
+    <td>christina.hersinger@wingman.co</td>
+    <td>Frankfurt, GER</td>
+    <td>
+      <div class="dropdown">
+        <button class="btn btn-sm btn-outline-primary dropdown-toggle dropdown-toggle-no-arrow" type="button" id="dropdownMenuButton-12" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="icon-dots-three-horizontal"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-sm" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Contact</a>
+          <a class="dropdown-item" href="#">Assign</a>
+          <a class="dropdown-item" href="#">Share</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Remove</a>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr class="table-divider"></tr> -->
+
+</template>

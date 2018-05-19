@@ -1,0 +1,77 @@
+<template name="homepage">
+  <div class="main-container">
+    <nav aria-label="breadcrumb" role="navigation" class="bg-primary text-white">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item active" aria-current="page">Welcome to <strong>Indie for Small Biz</strong>!
+              </li>
+              <!-- <li class="breadcrumb-item"><a href="pages-app.html">App Pages</a>
+              </li>
+
+
+              <li class="breadcrumb-item active" >Collection - People</li> -->
+            </ol>
+          </div>
+          <!--end of col-->
+        </div>
+        <!--end of row-->
+      </div>
+      <!--end of container-->
+    </nav>
+    <section>
+      <div class="container">
+        <div class="row justify-content-center align-items-center mt-2">
+          <div class="col">
+            <div class="media align-items-center">
+              <div class="media-body">
+                <div class="mb-3">
+                  <h1 class="h2 mb-2">Recent entries</h1>
+                  <span>Here's a list of your most recent QuickBook accounting entries</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-auto">
+            <!-- Somehow link to dialog flow -->
+            <button class="btn btn-primary"><i class="icon-paper-plane mr-1"></i> Make an entry</button>
+          </div>
+          <!--end of col-->
+        </div>
+        <!--end of row-->
+      </div>
+      <!--end of container-->
+    </section>
+    <!--end of section-->
+    <section class="flush-with-above">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <table class="table table-hover align-items-center table-borderless">
+              <thead>
+                <tr>
+                  <th scope="col">Type</th>
+                  <th scope="col">When</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Amount</th>
+                  <th scope="col">Notes</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                {{> entryCard}}
+              </tbody>
+            </table>
+          </div>
+          <!--end of col-->
+        </div>
+        <!--end of row-->
+      </div>
+      <!--end of container-->
+    </section>
+    <!--end of section-->
+  </div>
+
+</template>
