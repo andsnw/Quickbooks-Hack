@@ -1,5 +1,5 @@
 from quickbooks import Oauth2SessionManager
-import quickbooks;
+import quickbooks
 
 
 session_manager = Oauth2SessionManager(
