@@ -51,10 +51,10 @@ def expense_me():
       "Line": [
         {
           "Amount": 10.00,
-          "LinkedTxn": {
-            "TxnType": "Expense"
-            # "TxnId": "Purchase.id"
-          },
+          # "LinkedTxn": {
+          #   "TxnType": "Expense"
+          #   # "TxnId": "Purchase.id"
+          # },
           "DetailType": "AccountBasedExpenseLineDetail",
           "AccountBasedExpenseLineDetail": {
            "AccountRef": {
