@@ -1,10 +1,10 @@
 {
     "dev": {
         "app_function": "fulfilment.app", 
-        "aws_region": "ap-southeast-2",  
+        "aws_region": "ap-southeast-2", 
         "profile_name": "default", 
         "project_name": "fulfilment", 
         "runtime": "python2.7", 
-        "s3_bucket": "smallbizhack"
+        "s3_bucket": "zappa-9xxt43nym"
     }
 }
