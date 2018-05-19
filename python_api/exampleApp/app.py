@@ -44,17 +44,13 @@ def expense_me():
     """Create a new expense"""
     expense = {
       "AccountRef": {
-        "value": "42",
+        "value": "86",
         "name": "Visa"
       },
       "PaymentType": "CreditCard",
       "Line": [
         {
-          "Amount": 10.00,
-          # "LinkedTxn": {
-          #   "TxnType": "Expense"
-          #   # "TxnId": "Purchase.id"
-          # },
+          "Amount": 100.00,
           "DetailType": "AccountBasedExpenseLineDetail",
           "AccountBasedExpenseLineDetail": {
            "AccountRef": {
@@ -62,7 +58,7 @@ def expense_me():
               "value": "13"
             },
             "TaxCodeRef": {
-                "value": "Tax"
+              "value": 0
             }
           }
         }
