@@ -8,4 +8,8 @@ Meteor.methods({
   'expenses/update': (data) => {
 
   },
+
+  'expenses/delete': (expenseId) => {
+    Expenses.remove(expenseId);
+  },
 })

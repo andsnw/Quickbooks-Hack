@@ -4,14 +4,14 @@
       <div class="media align-items-center">
         <!-- <img alt="Image" src="assets/img/avatar-male-1.jpg" class="avatar" /> -->
         <div class="media-body">
-          {{}}
+          {{getReadableDate this.createdAt}}
         </div>
       </div>
     </th>
-    <td>Monday, 18th April 2018, 4:20pm</td>
-    <td>Office chair purchase</td>
-    <td>$50.00</td>
-    <td>Bought from officeworks - need to upload receipt</td>
+    <td>${{getAmount this}}</td>
+    <td>{{getDescription this}}</td>
+    <td>CreditCard</td>
+    <td>{{getLocation this}}</td>
     <td>
       <div class="dropdown">
         <button class="btn btn-sm btn-outline-primary dropdown-toggle dropdown-toggle-no-arrow" type="button" id="dropdownMenuButton-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

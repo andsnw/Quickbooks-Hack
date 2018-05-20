@@ -1,12 +1,17 @@
 
 Router.route('/', {
   name: 'homepage',
-  layoutTemplate: 'mainLayout'
+  layoutTemplate: 'mainLayout',
+  data: () => {
+    return {
+      entries: Expenses.find({}),
+    };
+  },
 });
 
 
-Router.route('/create', () => {
-  // API.handleRequest( this, 'pizza', this.request.method );
+Router.route( "/create", function() {
 
-
-});
+  this.response.setHeader( 'Access-Control-Allow-Origin', '*' );
+  API.handleRequest( this, 'create', this.request.method );
+}, { where: 'server' });
