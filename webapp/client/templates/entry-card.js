@@ -3,7 +3,9 @@ import moment from 'moment';
 Template.entryCard.events({
   'click .update': (e) => {
     e.preventDefault();
-    window.open("https://sandbox.qbo.intuit.com/app/expenses", '_blank');
+    let thisExpense = JSON.stringify(Template.currentData());
+    console.log(thisExpense);
+    window.open("http://localhost:5000/new?expense=" + thisExpense, '_blank');
 
   },
 })

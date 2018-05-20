@@ -10,6 +10,7 @@ AUTH_TYPE = 'OAuth2'
 CLIENT_ID= 'Q0hGEFnv7wAiY4aNJvBRMgeyhJNc8NY9teWlCaOe2n605ictjL'
 CLIENT_SECRET = '4JWUaL9S76IA1pDePY4S31PfAn6BNdNbLr3G1QQ7'
 REDIRECT_URI = 'http://localhost:5000/callback'
+# REDIRECT_URI = 'https://mwt95954t3.execute-api.ap-southeast-2.amazonaws.com/dev/callback'
 # REDIRECT_URI = 'https://developer.intuit.com/v2/OAuth2Playground/RedirectUrl'
 
 
@@ -29,4 +30,3 @@ ENVIRONMENT = 'Sandbox'
 
 # Set to latest at the time of updating this app, can be be configured to any minor version
 API_MINORVERSION = '23'
-

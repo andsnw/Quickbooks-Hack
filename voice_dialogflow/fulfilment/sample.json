@@ -1,0 +1,14 @@
+{
+    "location":{
+                "coordinates":
+                    {   
+                        "latitude":123,
+                        "longitude":1
+                    }
+                },
+    "params":{ 
+        "item":"something",
+        "customer":"something",
+        "amt-spent":"something"
+    }
+}

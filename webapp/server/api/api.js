@@ -25,6 +25,10 @@ API = {
 
 
         console.log(currentData);
+        if (!currentData.params.hasOwnProperty('spent-detail')) {
+          API.utility.response( context, 500, { "message": "Error!" } );
+          return false;
+        }
         Expenses.insert(currentData);
         API.utility.response( context, 200, { "message": "Successfully created expense!" } );
         // if ( hasData && validData ) {
