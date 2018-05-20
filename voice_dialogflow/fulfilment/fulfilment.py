@@ -19,16 +19,19 @@ def fulfilme():
     if request.method == "POST" and request.headers['Content-Type'] == 'application/json':
         request_data = request.json
         params = {}
+        params["location"] = -1
+        params["params"] = -1
         if "action" in request_data["queryResult"].keys():
             if request_data["queryResult"]["action"] == "request_permission":
                 print "recieved request for permission"
                 return jsonify(request_location())
             elif request_data["queryResult"]["action"] == "setup-finished":
-                print request_data[""]
-                params["location"] = request_data["queryResult"]["user"]["device"]["location"]["coordinates"]
+                params["location"] = request_data["originalDetectIntentRequest"]["payload"]["device"]["location"]
         params["params"] = request_data["queryResult"]["parameters"]
+        if params["params"] is None:
+            params["params"] = -1
         print params
-       # print json.dumps(request_data, indent=4)
+        forward_params(params)
         return 'Hi'
     return "Hello World!"
 
@@ -77,8 +80,12 @@ def request_location():
 # TODO: This, we forward the params iteratively i.e. after every dialogue 
 #       that is parsed from df
 def forward_params(fufillment_params):
-    json_payload = jsonify(fufillment_params)
-    pass
+    headers = {'Content-Type': 'application/json', 'Accept': 'application/json'}
+    requests.post("https://mwt95954t3.execute-api.ap-southeast-2.amazonaws.com/dev/new",
+                    headers=headers,
+                    data=json.dumps(fufillment_params))
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
