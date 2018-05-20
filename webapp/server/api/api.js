@@ -22,7 +22,7 @@ API = {
 
         currentData.createdAt = new Date();
         currentData.lastModifier = new Date();
-        
+
 
         console.log(currentData);
         Expenses.insert(currentData);
