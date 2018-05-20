@@ -7,8 +7,8 @@ AUTH_TYPE = 'OAuth2'
 # AUTH_TYPE = 'OAuth1'
 
 # OAuth2
-CLIENT_ID= 'Q0hGEFnv7wAiY4aNJvBRMgeyhJNc8NY9teWlCaOe2n605ictjL'
-CLIENT_SECRET = '4JWUaL9S76IA1pDePY4S31PfAn6BNdNbLr3G1QQ7'
+CLIENT_ID= 'Q0bvgCHQyw0f29EhMAkxkPslRVm9UUO3snOWFUFc7w4Ko9C9b8'
+CLIENT_SECRET = 'rRxcrmDaHvivg0GB3NH7gP6dd6lqFabztQoATiML'
 REDIRECT_URI = 'http://localhost:5000/callback'
 # REDIRECT_URI = 'https://mwt95954t3.execute-api.ap-southeast-2.amazonaws.com/dev/callback'
 # REDIRECT_URI = 'https://developer.intuit.com/v2/OAuth2Playground/RedirectUrl'

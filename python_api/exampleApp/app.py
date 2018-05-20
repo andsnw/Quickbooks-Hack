@@ -2,7 +2,6 @@ from flask import Flask, request, redirect, url_for, session, g, flash, render_t
 from flask_oauth import OAuth
 import requests
 import urllib
-import json
 from werkzeug.exceptions import BadRequest
 from QBOService import create_customer, get_companyInfo, create_expense
 from utils import excel, context, OAuth2Helper
@@ -40,16 +39,15 @@ def index():
         title="QB Customer Leads",
     )
 
-@app.route('/new', methods=["GET", "POST"])
-def login():
-    # Ensure the API request is a POST method
-    if request.method =="GET":
-        requestMe = json.loads(request.args.get('expense'))
+@app.route('/new')
+def new_transaction():
+    """Create a new expense"""
+    if request.method == "POST":
+        requestMe = request.json
+        if requestMe["params"] == -1:
+            print("Failure")
+            return 'failed'
         amountspent = float(requestMe["params"]["amt-spent"]["amount"])
-
-        # print (spendtype)
-        print (amountspent)
-
         expense = {
           "AccountRef": {
             "value": "86",
@@ -72,13 +70,10 @@ def login():
             }
           ]
         }
-        print(expense)
         if config.AUTH_TYPE == 'OAuth1':
-            request_context = context.RequestContextOAuth1(session['realm_id'], session['access_token'],
-                                                           session['access_secret'])
+            request_context = context.RequestContextOAuth1(session['realm_id'], session['access_token'], session['access_secret'])
         else:
-            request_context = context.RequestContext(session['realm_id'], session['access_token'],
-                                                     session['refresh_token'])
+            request_context = context.RequestContext(session['realm_id'], session['access_token'], session['refresh_token'])
 
         response = create_expense(expense, request_context)
 
@@ -86,80 +81,17 @@ def login():
         if (response.status_code == 200):
             font_color = 'green'
             flash('Expense successfully added!')
-            return "hi"
+            return render_template(
+                'index.html',
+                #customer_dict=new_customer_list,
+                title='QB Customer Leads',
+                text_color=font_color
+            )
         else:
             font_color = 'red'
             flash('Something went wrong: ' + response.text)
-
         return redirect(url_for('index'))
-    if request.method == "POST":
-        # Check that the header is posting JSON blob
-        if request.headers['Content-Type'] == 'application/json':
-            # Deconstruct the JSON post to get key, zid and pass
-            # request_data = request.json
-            #requestMe = json.loads(request_data)
-            requestMe = request.json
-            #TODO: Send to meteor appl
-            #requests.post(url=//, data=request_data)
-            if requestMe["params"] == -1:
-                print("Failure")
-                return 'failed'
-
-            print(requestMe)
-            # requests.post(url="http://indietest.au.meteorapp.com/create", data=requestMe)
-            # spendtype = str(requestMe["params"]["spent-type"])
-
-            amountspent = float(requestMe["params"]["amt-spent"]["amount"])
-
-            # print (spendtype)
-            print (amountspent)
-            #spentdetail =  requestMe["params"]["spent-detail"]
-
-
-            ##print (request_data)
-            expense = {
-              "AccountRef": {
-                "value": "86",
-                "name": "Visa"
-              },
-              "PaymentType": "CreditCard",
-              "Line": [
-                {
-                  "Amount": amountspent,
-                  "DetailType": "AccountBasedExpenseLineDetail",
-                  "AccountBasedExpenseLineDetail": {
-                   "AccountRef": {
-                      "name": "Meals and Entertainment",
-                      "value": "13"
-                    },
-                    "TaxCodeRef": {
-                      "value": "2"
-                    }
-                  }
-                }
-              ]
-            }
-            print(expense)
-            if config.AUTH_TYPE == 'OAuth1':
-                request_context = context.RequestContextOAuth1(session['realm_id'], session['access_token'],
-                                                               session['access_secret'])
-            else:
-                request_context = context.RequestContext(session['realm_id'], session['access_token'],
-                                                         session['refresh_token'])
-
-            response = create_expense(expense, request_context)
-
-            # If customer added successfully, remove them from html and excel file
-            if (response.status_code == 200):
-                font_color = 'green'
-                flash('Expense successfully added!')
-                return "hi"
-            else:
-                font_color = 'red'
-                flash('Something went wrong: ' + response.text)
-
-            return redirect(url_for('index'))
-
+    return redirect(url_for('index'))
 
 @app.route('/create')
 def expense_me():
@@ -172,7 +104,7 @@ def expense_me():
       "PaymentType": "CreditCard",
       "Line": [
         {
-          "Amount": 80.00,
+          "Amount": 110.00,
           "DetailType": "AccountBasedExpenseLineDetail",
           "AccountBasedExpenseLineDetail": {
            "AccountRef": {
@@ -199,6 +131,7 @@ def expense_me():
         flash('Expense successfully added!')
         return render_template(
             'index.html',
+            #customer_dict=new_customer_list,
             title='QB Customer Leads',
             text_color=font_color
         )
