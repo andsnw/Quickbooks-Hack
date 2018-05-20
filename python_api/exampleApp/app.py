@@ -58,7 +58,7 @@ def expense_me():
               "value": "13"
             },
             "TaxCodeRef": {
-              "value": 0
+              "value": "2"
             }
           }
         }

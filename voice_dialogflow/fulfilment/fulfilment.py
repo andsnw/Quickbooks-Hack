@@ -18,12 +18,17 @@ def hello():
 def fulfilme():
     if request.method == "POST" and request.headers['Content-Type'] == 'application/json':
         request_data = request.json
+        params = {}
         if "action" in request_data["queryResult"].keys():
             if request_data["queryResult"]["action"] == "request_permission":
                 print "recieved request for permission"
                 return jsonify(request_location())
-        params = request_data["queryResult"]["parameters"]
-        print json.dumps(request_data, indent=4)
+            elif request_data["queryResult"]["action"] == "setup-finished":
+                print request_data[""]
+                params["location"] = request_data["queryResult"]["user"]["device"]["location"]["coordinates"]
+        params["params"] = request_data["queryResult"]["parameters"]
+        print params
+       # print json.dumps(request_data, indent=4)
         return 'Hi'
     return "Hello World!"
 
